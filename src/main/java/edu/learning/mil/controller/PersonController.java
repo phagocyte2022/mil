@@ -27,17 +27,17 @@ public class PersonController {
     }
 
     @GetMapping("/person/lastname/{lastName}")
-    public Optional<Person> findPersonByLastName(@PathVariable String lastName) {
+    public List<Person> findPersonByLastName(@PathVariable String lastName) {
         return personService.getPersonByLastName(lastName);
     }
 
     @GetMapping("/person/firstname/{firstName}")
-    public Optional<Person> findPersonByFirstName(@PathVariable String firstName) {
+    public List<Person> findPersonByFirstName(@PathVariable String firstName) {
         return personService.getPersonByFirstName(firstName);
     }
 
     @GetMapping("/person/middlename/{middleName}")
-    public Optional<Person> findPersonByMiddleName(@PathVariable String middleName) {
+    public List<Person> findPersonByMiddleName(@PathVariable String middleName) {
         return personService.getPersonByMiddleName(middleName);
     }
 
@@ -45,6 +45,5 @@ public class PersonController {
     public Person createPerson(@RequestBody Person newPerson){
         return personService.createPerson(newPerson);
     }
-
 
 }

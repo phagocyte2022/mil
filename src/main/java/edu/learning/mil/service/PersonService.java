@@ -28,13 +28,13 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public Optional<Person> getPersonByLastName(String lastName) {
+    public List<Person> getPersonByLastName(String lastName) {
         return personRepository.findPersonByLastName(lastName);
     }
-    public Optional<Person> getPersonByFirstName(String firstName) {
+    public List<Person> getPersonByFirstName(String firstName) {
         return personRepository.findPersonByFirstName(firstName);
     }
-    public Optional<Person> getPersonByMiddleName(String middleName) {
+    public List<Person> getPersonByMiddleName(String middleName) {
         return personRepository.findPersonByMiddleName(middleName);
     }
 

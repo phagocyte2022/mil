@@ -5,8 +5,10 @@ import edu.learning.mil.service.WeaponService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/mil")
 public class WeaponController {
 
     @Autowired
@@ -15,7 +17,11 @@ public class WeaponController {
     @GetMapping("/weapon/{id}")
     public Weapon getWeaponById(@PathVariable(name = "id") Long id) throws Exception {
         return weaponService.getWeaponById(id);
+    }
 
+    @GetMapping("/weapon/list")
+    public List<Weapon> getAllWeapons(){
+        return weaponService.getAllWeapons();
     }
 
     @PostMapping("/weapon/create")

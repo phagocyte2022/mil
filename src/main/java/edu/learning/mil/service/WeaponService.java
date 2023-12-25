@@ -5,6 +5,8 @@ import edu.learning.mil.domain.Weapon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class WeaponService {
     @Autowired
@@ -21,4 +23,7 @@ public class WeaponService {
     }
 
 
+    public List<Weapon> getAllWeapons() {
+        return weaponRepository.findAll();
+    }
 }

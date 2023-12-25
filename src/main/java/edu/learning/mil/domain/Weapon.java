@@ -23,10 +23,7 @@ public class Weapon {
     @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
-    @Column (name = "date_granted")
-    private LocalDate dateGranted;
-    @Column (name = "date_returned")
-    private LocalDate dateReturned;
+
 
 
 }

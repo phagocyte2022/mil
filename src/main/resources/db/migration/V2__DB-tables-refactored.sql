@@ -37,7 +37,7 @@ create table weapons_assigned (
 	date_granted date,
     date_returned date,
     primary key (id),
-    foreign key (person_id) references people
+    foreign key (person_id) references people,
     foreign key (weapon_id) references weapons
 );
 

@@ -1,3 +1,4 @@
+drop table if exists weapons_assigned cascade;
 drop table if exists people cascade;
 drop table if exists ranks cascade;
 drop table if exists weapons cascade;
@@ -25,9 +26,18 @@ create table weapons (
     weapon_type varchar(255),
 	weapon_number varchar(255),
 	person_id bigint,
+	primary key (id),
+    foreign key (person_id) references people
+);
+
+create table weapons_assigned (
+    id bigserial not null,
+    weapon_id bigint,
+    person_id bigint,
 	date_granted date,
     date_returned date,
     primary key (id),
     foreign key (person_id) references people
+    foreign key (weapon_id) references weapons
 );
 

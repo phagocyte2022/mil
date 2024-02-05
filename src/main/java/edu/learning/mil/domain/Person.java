@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +15,8 @@ import java.util.List;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column (name = "id")
+    private Long personId;
     @Column (name = "last_name")
     private String lastName;
     @Column (name = "first_name")
@@ -33,6 +33,5 @@ public class Person {
         this.firstName = firstName;
         this.middleName = middleName;
     }
-
 
 }

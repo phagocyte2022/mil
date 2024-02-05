@@ -1,12 +1,12 @@
 package edu.learning.mil.controller;
 
 import edu.learning.mil.domain.Person;
+import edu.learning.mil.domain.Weapon;
 import edu.learning.mil.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/mil")
@@ -39,6 +39,11 @@ public class PersonController {
     @GetMapping("/person/middlename/{middleName}")
     public List<Person> findPersonByMiddleName(@PathVariable String middleName) {
         return personService.getPersonByMiddleName(middleName);
+    }
+
+    @GetMapping("/person/{id}/weapons")
+    public List<Weapon> getWeaponsByPersonId(@PathVariable Long id) {
+        return personService.getWeaponsByPersonId(id);
     }
 
     @PostMapping("/person/create")

@@ -2,7 +2,6 @@ package edu.learning.mil.service;
 
 import edu.learning.mil.dao.PersonRepository;
 import edu.learning.mil.dao.WeaponAssignmentRepository;
-import edu.learning.mil.dao.WeaponRepository;
 import edu.learning.mil.domain.Person;
 import edu.learning.mil.domain.Weapon;
 import edu.learning.mil.domain.WeaponAssignment;
@@ -52,4 +51,5 @@ public class PersonService {
                 .map(WeaponAssignment::getWeapon)
                 .collect(Collectors.toList());
     }
+
 }

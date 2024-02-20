@@ -17,9 +17,9 @@ import java.util.Objects;
 public class WeaponAssignment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rank_id")
-    Long rankId;
-    @Column(name = "weapon_id", insertable=false, updatable=false)
+    @Column(name = "assignment_id", insertable=false, updatable=false)
+    Long weaponAssignmentId;
+    @Column(name = "weapon_id")
     Long weaponId;
     @Column(name = "person_id")
     Long personId;
@@ -28,7 +28,7 @@ public class WeaponAssignment {
     @Column (name = "date_returned")
     private LocalDate dateReturned;
     @ManyToOne
-    @JoinColumn(name = "weapon_id")
+    @JoinColumn(name = "weapon_id", insertable=false, updatable=false)
     private Weapon weapon;
 
     @ManyToOne
@@ -37,19 +37,5 @@ public class WeaponAssignment {
         return this.weapon;
     }
 
-    @Override
-    public final boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null) return false;
-        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
-        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
-        if (thisEffectiveClass != oEffectiveClass) return false;
-        WeaponAssignment that = (WeaponAssignment) o;
-        return getRankId() != null && Objects.equals(getRankId(), that.getRankId());
-    }
 
-    @Override
-    public final int hashCode() {
-        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
-    }
 }

@@ -27,7 +27,6 @@ public class Person {
     @Column (name = "middle_name")
     private String middleName;
     @OneToMany(mappedBy = "person")
-    @ToString.Exclude
     private List<PersonRank> personRank;
 
 
